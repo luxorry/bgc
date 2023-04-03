@@ -1,0 +1,47 @@
+if game.PlaceId == 11746859781 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Bubble Gum Clicker! / https://discord.gg/h3ANkSPkyc", HidePremium = false, IntroText = "Luxorry Hub", SaveConfig = true, ConfigFolder = "LuxFolder"})
+
+--Values
+_G.BlowBubble = true
+
+
+--Functions
+
+function BlowBubble()
+    while _G.BlowBubble == true do
+        wait(0)
+    local args = {
+    [1] = {
+        [1] = {
+            [1] = false
+        },
+        [2] = {
+            [1] = 2
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage").Remotes["blow bubble"]:FireServer(unpack(args))
+end
+end
+
+local Tab = Window:MakeTab({
+	Name = "Fast Blow Bubble",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Fast Blow Bubble",
+	Default = false,
+	Callback = function(Value)
+        _G.BlowBubble = Value
+		BlowBubble()
+	end    
+})
+
+
+
+end
+OrionLib:Init()
